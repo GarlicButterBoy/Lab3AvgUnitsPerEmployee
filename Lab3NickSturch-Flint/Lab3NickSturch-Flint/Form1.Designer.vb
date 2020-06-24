@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnEnter = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
@@ -38,6 +39,7 @@ Partial Class Form1
         Me.lblStaticUnits = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'btnEnter
@@ -45,8 +47,9 @@ Partial Class Form1
         Me.btnEnter.Location = New System.Drawing.Point(12, 311)
         Me.btnEnter.Name = "btnEnter"
         Me.btnEnter.Size = New System.Drawing.Size(92, 23)
-        Me.btnEnter.TabIndex = 0
+        Me.btnEnter.TabIndex = 2
         Me.btnEnter.Text = "&Enter"
+        Me.ToolTip1.SetToolTip(Me.btnEnter, "Use this button to submit the units shipped.")
         Me.btnEnter.UseVisualStyleBackColor = True
         '
         'btnExit
@@ -54,8 +57,9 @@ Partial Class Form1
         Me.btnExit.Location = New System.Drawing.Point(239, 311)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(92, 23)
-        Me.btnExit.TabIndex = 1
+        Me.btnExit.TabIndex = 4
         Me.btnExit.Text = "E&xit"
+        Me.ToolTip1.SetToolTip(Me.btnExit, "Press this button to close the window!")
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnReset
@@ -64,8 +68,9 @@ Partial Class Form1
         Me.btnReset.Location = New System.Drawing.Point(126, 311)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(92, 23)
-        Me.btnReset.TabIndex = 2
+        Me.btnReset.TabIndex = 3
         Me.btnReset.Text = "&Reset"
+        Me.ToolTip1.SetToolTip(Me.btnReset, "Press this button to reset the entire window.")
         Me.btnReset.UseVisualStyleBackColor = True
         '
         'lblCompanyAverage
@@ -77,8 +82,9 @@ Partial Class Form1
         Me.lblCompanyAverage.Location = New System.Drawing.Point(12, 282)
         Me.lblCompanyAverage.Name = "lblCompanyAverage"
         Me.lblCompanyAverage.Size = New System.Drawing.Size(319, 26)
-        Me.lblCompanyAverage.TabIndex = 3
+        Me.lblCompanyAverage.TabIndex = 13
         Me.lblCompanyAverage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ToolTip1.SetToolTip(Me.lblCompanyAverage, "The total average for the company")
         '
         'lblFirstAvg
         '
@@ -86,8 +92,9 @@ Partial Class Form1
         Me.lblFirstAvg.Location = New System.Drawing.Point(12, 250)
         Me.lblFirstAvg.Name = "lblFirstAvg"
         Me.lblFirstAvg.Size = New System.Drawing.Size(95, 26)
-        Me.lblFirstAvg.TabIndex = 4
+        Me.lblFirstAvg.TabIndex = 13
         Me.lblFirstAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ToolTip1.SetToolTip(Me.lblFirstAvg, "An average of the last weeks units shipped for employee 1")
         '
         'lblSecondAvg
         '
@@ -95,8 +102,9 @@ Partial Class Form1
         Me.lblSecondAvg.Location = New System.Drawing.Point(126, 250)
         Me.lblSecondAvg.Name = "lblSecondAvg"
         Me.lblSecondAvg.Size = New System.Drawing.Size(92, 26)
-        Me.lblSecondAvg.TabIndex = 5
+        Me.lblSecondAvg.TabIndex = 13
         Me.lblSecondAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ToolTip1.SetToolTip(Me.lblSecondAvg, "An average of the last weeks units shipped for employee 2")
         '
         'lblThirdAvg
         '
@@ -104,8 +112,9 @@ Partial Class Form1
         Me.lblThirdAvg.Location = New System.Drawing.Point(236, 250)
         Me.lblThirdAvg.Name = "lblThirdAvg"
         Me.lblThirdAvg.Size = New System.Drawing.Size(95, 26)
-        Me.lblThirdAvg.TabIndex = 6
+        Me.lblThirdAvg.TabIndex = 13
         Me.lblThirdAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ToolTip1.SetToolTip(Me.lblThirdAvg, "An average of the last weeks units shipped for employee 3")
         '
         'txtFirstEmployeeUnits
         '
@@ -115,9 +124,10 @@ Partial Class Form1
         Me.txtFirstEmployeeUnits.Name = "txtFirstEmployeeUnits"
         Me.txtFirstEmployeeUnits.ReadOnly = True
         Me.txtFirstEmployeeUnits.Size = New System.Drawing.Size(95, 162)
-        Me.txtFirstEmployeeUnits.TabIndex = 7
+        Me.txtFirstEmployeeUnits.TabIndex = 13
         Me.txtFirstEmployeeUnits.TabStop = False
         Me.txtFirstEmployeeUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ToolTip1.SetToolTip(Me.txtFirstEmployeeUnits, "A total of the units shipped over the past week for employee 1")
         '
         'txtSecondEmployeeUnits
         '
@@ -127,9 +137,10 @@ Partial Class Form1
         Me.txtSecondEmployeeUnits.Name = "txtSecondEmployeeUnits"
         Me.txtSecondEmployeeUnits.ReadOnly = True
         Me.txtSecondEmployeeUnits.Size = New System.Drawing.Size(92, 162)
-        Me.txtSecondEmployeeUnits.TabIndex = 8
+        Me.txtSecondEmployeeUnits.TabIndex = 13
         Me.txtSecondEmployeeUnits.TabStop = False
         Me.txtSecondEmployeeUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ToolTip1.SetToolTip(Me.txtSecondEmployeeUnits, "A total of the units shipped over the past week for employee 2")
         '
         'txtThirdEmployeeUnits
         '
@@ -139,9 +150,10 @@ Partial Class Form1
         Me.txtThirdEmployeeUnits.Name = "txtThirdEmployeeUnits"
         Me.txtThirdEmployeeUnits.ReadOnly = True
         Me.txtThirdEmployeeUnits.Size = New System.Drawing.Size(95, 162)
-        Me.txtThirdEmployeeUnits.TabIndex = 9
+        Me.txtThirdEmployeeUnits.TabIndex = 13
         Me.txtThirdEmployeeUnits.TabStop = False
         Me.txtThirdEmployeeUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ToolTip1.SetToolTip(Me.txtThirdEmployeeUnits, "A total of the units shipped over the past week for employee 3")
         '
         'lblStaticEmployee1
         '
@@ -149,7 +161,7 @@ Partial Class Form1
         Me.lblStaticEmployee1.Location = New System.Drawing.Point(12, 59)
         Me.lblStaticEmployee1.Name = "lblStaticEmployee1"
         Me.lblStaticEmployee1.Size = New System.Drawing.Size(94, 23)
-        Me.lblStaticEmployee1.TabIndex = 10
+        Me.lblStaticEmployee1.TabIndex = 13
         Me.lblStaticEmployee1.Text = "Employee 1:"
         Me.lblStaticEmployee1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -158,7 +170,7 @@ Partial Class Form1
         Me.lblStaticEmployee2.Location = New System.Drawing.Point(126, 59)
         Me.lblStaticEmployee2.Name = "lblStaticEmployee2"
         Me.lblStaticEmployee2.Size = New System.Drawing.Size(92, 23)
-        Me.lblStaticEmployee2.TabIndex = 11
+        Me.lblStaticEmployee2.TabIndex = 13
         Me.lblStaticEmployee2.Text = "Employee 2:"
         Me.lblStaticEmployee2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -167,7 +179,7 @@ Partial Class Form1
         Me.lblStaticEmployee3.Location = New System.Drawing.Point(236, 59)
         Me.lblStaticEmployee3.Name = "lblStaticEmployee3"
         Me.lblStaticEmployee3.Size = New System.Drawing.Size(95, 23)
-        Me.lblStaticEmployee3.TabIndex = 12
+        Me.lblStaticEmployee3.TabIndex = 13
         Me.lblStaticEmployee3.Text = "Employee 3:"
         Me.lblStaticEmployee3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -177,8 +189,8 @@ Partial Class Form1
         Me.lblStaticUnits.Location = New System.Drawing.Point(12, 35)
         Me.lblStaticUnits.Name = "lblStaticUnits"
         Me.lblStaticUnits.Size = New System.Drawing.Size(37, 13)
-        Me.lblStaticUnits.TabIndex = 13
-        Me.lblStaticUnits.Text = "Units: "
+        Me.lblStaticUnits.TabIndex = 0
+        Me.lblStaticUnits.Text = "&Units: "
         Me.lblStaticUnits.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1
@@ -188,15 +200,17 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(12, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
-        Me.Label1.TabIndex = 14
+        Me.Label1.TabIndex = 13
         Me.Label1.Text = "Day 1"
+        Me.ToolTip1.SetToolTip(Me.Label1, "The current day for which you enter the units shipped.")
         '
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(55, 32)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox1.TabIndex = 15
+        Me.TextBox1.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.TextBox1, "Input the number of Units Shipped based on the day you see above.")
         '
         'Form1
         '
@@ -247,4 +261,5 @@ Partial Class Form1
     Friend WithEvents lblStaticUnits As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
