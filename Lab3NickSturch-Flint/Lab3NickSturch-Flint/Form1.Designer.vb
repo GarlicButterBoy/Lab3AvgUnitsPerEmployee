@@ -38,7 +38,7 @@ Partial Class Form1
         Me.lblStaticEmployee3 = New System.Windows.Forms.Label()
         Me.lblStaticUnits = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtUnitInput = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
@@ -204,13 +204,13 @@ Partial Class Form1
         Me.Label1.Text = "Day 1"
         Me.ToolTip1.SetToolTip(Me.Label1, "The current day for which you enter the units shipped.")
         '
-        'TextBox1
+        'txtUnitInput
         '
-        Me.TextBox1.Location = New System.Drawing.Point(55, 32)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox1.TabIndex = 1
-        Me.ToolTip1.SetToolTip(Me.TextBox1, "Input the number of Units Shipped based on the day you see above.")
+        Me.txtUnitInput.Location = New System.Drawing.Point(55, 32)
+        Me.txtUnitInput.Name = "txtUnitInput"
+        Me.txtUnitInput.Size = New System.Drawing.Size(52, 20)
+        Me.txtUnitInput.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.txtUnitInput, "Input the number of Units Shipped based on the day you see above.")
         '
         'Form1
         '
@@ -219,7 +219,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnReset
         Me.ClientSize = New System.Drawing.Size(343, 340)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtUnitInput)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblStaticUnits)
         Me.Controls.Add(Me.lblStaticEmployee3)
@@ -260,6 +260,6 @@ Partial Class Form1
     Friend WithEvents lblStaticEmployee3 As Label
     Friend WithEvents lblStaticUnits As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtUnitInput As TextBox
     Friend WithEvents ToolTip1 As ToolTip
 End Class
