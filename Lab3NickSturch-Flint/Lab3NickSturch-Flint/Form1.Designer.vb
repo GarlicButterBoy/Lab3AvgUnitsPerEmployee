@@ -29,7 +29,12 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(470, 416)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(486, 455)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(486, 455)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Average Units Shipped Per Employee"
         Me.ResumeLayout(False)
 
