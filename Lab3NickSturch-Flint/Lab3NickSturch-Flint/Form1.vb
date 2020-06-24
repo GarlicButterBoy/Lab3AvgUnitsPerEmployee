@@ -72,6 +72,7 @@ Public Class Form1
                     firstBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 1 Then
                     unitCounter += 1
@@ -81,6 +82,7 @@ Public Class Form1
                     firstBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 2 Then
                     unitCounter += 1
@@ -90,6 +92,7 @@ Public Class Form1
                     firstBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 3 Then
                     unitCounter += 1
@@ -99,6 +102,7 @@ Public Class Form1
                     firstBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 4 Then
                     unitCounter += 1
@@ -108,6 +112,7 @@ Public Class Form1
                     firstBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 5 Then
                     unitCounter += 1
@@ -117,6 +122,7 @@ Public Class Form1
                     firstBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 6 Then
                     Integer.TryParse(txtUnitInput.Text, backup)
@@ -128,6 +134,8 @@ Public Class Form1
                     employeeCounter += 1
                     unitCounter = 0
                     lblFirstAvg.Text = "Average:" & firstBackup / 7
+                    lblDay.Text = arrDays(unitCounter)
+
                 End If
 
             Else
@@ -151,6 +159,7 @@ Public Class Form1
                     secondBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 1 Then
                     unitCounter += 1
@@ -160,6 +169,7 @@ Public Class Form1
                     secondBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 2 Then
                     unitCounter += 1
@@ -169,6 +179,7 @@ Public Class Form1
                     secondBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 3 Then
                     unitCounter += 1
@@ -178,6 +189,7 @@ Public Class Form1
                     secondBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 4 Then
                     unitCounter += 1
@@ -187,6 +199,7 @@ Public Class Form1
                     secondBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 5 Then
                     unitCounter += 1
@@ -196,6 +209,7 @@ Public Class Form1
                     secondBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 6 Then
                     Integer.TryParse(txtUnitInput.Text, backup)
@@ -207,6 +221,7 @@ Public Class Form1
                     lblSecondAvg.Text = "Average:" & secondBackup / 7
                     employeeCounter += 1
                     unitCounter = 0
+                    lblDay.Text = arrDays(unitCounter)
 
                 End If
 
@@ -231,6 +246,7 @@ Public Class Form1
                     thirdBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 1 Then
                     unitCounter += 1
@@ -240,6 +256,7 @@ Public Class Form1
                     thirdBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 2 Then
                     unitCounter += 1
@@ -249,6 +266,7 @@ Public Class Form1
                     thirdBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 3 Then
                     unitCounter += 1
@@ -258,6 +276,7 @@ Public Class Form1
                     thirdBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 4 Then
                     unitCounter += 1
@@ -267,6 +286,7 @@ Public Class Form1
                     thirdBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 5 Then
                     unitCounter += 1
@@ -276,6 +296,7 @@ Public Class Form1
                     thirdBackup += backup
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
+                    lblDay.Text = arrDays(unitCounter)
 
                 ElseIf unitCounter = 6 Then
                     Integer.TryParse(txtUnitInput.Text, backup)
@@ -287,6 +308,7 @@ Public Class Form1
                     txtUnitInput.Enabled = False
                     btnEnter.Enabled = False
                     lblCompanyAverage.Text = "Companies Average is: " & (firstBackup + secondBackup + thirdBackup) / 21
+                    lblDay.Text = "Done!"
 
                 End If
 
@@ -357,9 +379,6 @@ Public Class Form1
     ''' Executes when the user pressed the reset button, will reset the form as if it were just opened
     ''' </summary>
     Sub StartAnew()
-        'Resets the labels output
-        ClearControls(outputLabelList)
-
         'Resets the text boxes
         ClearControls(inputTextBoxList)
         txtFirstEmployeeUnits.Enabled = True
@@ -374,9 +393,14 @@ Public Class Form1
         secondBackup = 0
         thirdBackup = 0
 
+        'Resets the labels output
+        ClearControls(outputLabelList)
+        lblDay.Text = arrDays(unitCounter)
+
         'Resets Focus
         txtUnitInput.Focus()
         btnEnter.Enabled = True
+
     End Sub
 
 #End Region

@@ -37,7 +37,7 @@ Partial Class Form1
         Me.lblStaticEmployee2 = New System.Windows.Forms.Label()
         Me.lblStaticEmployee3 = New System.Windows.Forms.Label()
         Me.lblStaticUnits = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblDay = New System.Windows.Forms.Label()
         Me.txtUnitInput = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
@@ -193,16 +193,16 @@ Partial Class Form1
         Me.lblStaticUnits.Text = "&Units: "
         Me.lblStaticUnits.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label1
+        'lblDay
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 11)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 13)
-        Me.Label1.TabIndex = 13
-        Me.Label1.Text = "Day 1"
-        Me.ToolTip1.SetToolTip(Me.Label1, "The current day for which you enter the units shipped.")
+        Me.lblDay.AutoSize = True
+        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDay.Location = New System.Drawing.Point(12, 11)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(40, 13)
+        Me.lblDay.TabIndex = 13
+        Me.lblDay.Text = "Day 1"
+        Me.ToolTip1.SetToolTip(Me.lblDay, "The current day for which you enter the units shipped.")
         '
         'txtUnitInput
         '
@@ -220,7 +220,7 @@ Partial Class Form1
         Me.CancelButton = Me.btnReset
         Me.ClientSize = New System.Drawing.Size(343, 340)
         Me.Controls.Add(Me.txtUnitInput)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblDay)
         Me.Controls.Add(Me.lblStaticUnits)
         Me.Controls.Add(Me.lblStaticEmployee3)
         Me.Controls.Add(Me.lblStaticEmployee2)
@@ -259,7 +259,7 @@ Partial Class Form1
     Friend WithEvents lblStaticEmployee2 As Label
     Friend WithEvents lblStaticEmployee3 As Label
     Friend WithEvents lblStaticUnits As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblDay As Label
     Friend WithEvents txtUnitInput As TextBox
     Friend WithEvents ToolTip1 As ToolTip
 End Class
