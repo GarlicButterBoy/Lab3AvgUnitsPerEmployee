@@ -3,8 +3,12 @@
 Public Class Form1
 
 
-
-
+    'An array to store the day in which the program is asking for the units
+    Dim arrDays() As String = {"Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Done"}
+    'Updates after an employees units are all entered
+    Dim employeeCounter As Integer = 0
+    'Updates after a single unit input 
+    Dim unitCounter As Integer = 0
 
 
 
