@@ -4,8 +4,8 @@ Public Class Form1
 
 #Region "Constants and Variables"
     'Min and Max Values
-    Private Const MIN_GRADE As Integer = 0
-    Private Const MAX_GRADE As Integer = 5000
+    Private Const MIN As Integer = 0
+    Private Const MAX As Integer = 5000
     Dim backup As Integer = 0
     'Updates after an employees units are all entered
     Dim employeeCounter As Integer = 0
@@ -24,10 +24,6 @@ Public Class Form1
     'An array to store the day in which the program is asking for the units
     Dim arrDays() As String = {"Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"}
     Dim arrEmployeeUnits(3, 7) As Integer
-
-    '  Dim arrEmployeeOne(6) As Integer
-    ' Dim arrEmployeeTwo(6) As Integer
-    '  Dim arrEmployeeThree(6) As Integer
 
     ''' <summary>
     ''' Creates an array of my text boxes
@@ -51,124 +47,117 @@ Public Class Form1
 
 #Region "Buttons"
     ''' <summary>
-    ''' When the user clicks the enter button
+    ''' When the user clicks the enter button execute this code (its a lot!)
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
 
-
-
         Do
 
-
             Do
-
+                'Accepts user input then tries to validate
                 Dim userInput As String = txtUnitInput.Text
 
-
                 If ValidateInput(userInput) Then
-
-
                     'If validation succeeds move onto next if-else statement
                     'last unit entered for third employee
                     If employeeCounter = 2 And unitCounter = 6 Then
-                        txtThirdEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
-                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
-                        thirdBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtThirdEmployeeUnits.Text += txtUnitInput.Text & vbNewLine 'adds the input to the appropriate textbox, then adds a new line
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter)) 'store the user input into the 2 dimensional array
+                        thirdBackup += arrEmployeeUnits(employeeCounter, unitCounter) 'pulls the value from the array and stores it in a backup for later math
                         txtUnitInput.Clear()
-                        txtUnitInput.Focus()
+                        txtUnitInput.Focus() 'clears textbox and re-focusses
                         employeeCounter += 1
-                        '  lblThirdAvg.Text = "Average:" & 'PUT VALUES FOR Third EMPLOYEE / 7
-                        txtUnitInput.Enabled = False
+                        lblThirdAvg.Text = "Average:" & Math.Round(thirdBackup / 7, 2) 'Does the math for employee average
+                        txtUnitInput.Enabled = False 'disables input and enter button, because program is finished!
                         btnEnter.Enabled = False
-
-                        ' lblCompanyAverage.Text = "Companies Average is: " & 'PUT VALUES FOR all EMPLOYEES HERE / 21
+                        lblCompanyAverage.Text = "Companies Average is: " & Math.Round((firstBackup + secondBackup + thirdBackup) / 21, 2) 'does the math for Company Average
                         lblDay.Text = "Done!"
                         Exit Do
 
                         'last unit entered for second employee
                     ElseIf employeeCounter = 1 And unitCounter = 6 Then
-                        txtSecondEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
-                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
-                        secondBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtSecondEmployeeUnits.Text += txtUnitInput.Text & vbNewLine 'adds the input to the appropriate textbox, then adds a new line
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter)) 'store the user input into the 2 dimensional array
+                        secondBackup += arrEmployeeUnits(employeeCounter, unitCounter) 'pulls the value from the array and stores it in a backup for later math
                         txtUnitInput.Clear()
-                        txtUnitInput.Focus()
+                        txtUnitInput.Focus() 'clears textbox and re-focusses
                         unitCounter = 0
                         employeeCounter += 1
-                        'lblSecondAvg.Text = "Average:" & 'PUT VALUES FOR Second EMPLOYEE / 7
+                        lblSecondAvg.Text = "Average:" & Math.Round(secondBackup / 7, 2) 'Does the math for employee average
                         btnEnter.Enabled = False
-                        lblDay.Text = arrDays(unitCounter)
+                        lblDay.Text = arrDays(unitCounter) 'updates the current day
                         Exit Do
 
                         'Last unit entered for first employee
                     ElseIf employeeCounter = 0 And unitCounter = 6 Then
-                        txtFirstEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
-                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
-                        firstBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtFirstEmployeeUnits.Text += txtUnitInput.Text & vbNewLine 'adds the input to the appropriate textbox, then adds a new line
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter)) 'store the user input into the 2 dimensional array
+                        firstBackup += arrEmployeeUnits(employeeCounter, unitCounter) 'pulls the value from the array and stores it in a backup for later math
                         txtUnitInput.Clear()
-                        txtUnitInput.Focus()
+                        txtUnitInput.Focus() 'clears textbox and re-focusses
                         unitCounter = 0
                         employeeCounter += 1
-                        'lblFirstAvg.Text = "Average:" & 'PUT VALUES FOR First EMPLOYEE / 7
+                        lblFirstAvg.Text = "Average:" & Math.Round(firstBackup / 7, 2) 'Does the math for employee average
                         btnEnter.Enabled = False
-                        lblDay.Text = arrDays(unitCounter)
+                        lblDay.Text = arrDays(unitCounter) 'updates the current day
                         Exit Do
 
                         'first 6 units entered for third employee
                     ElseIf employeeCounter = 2 Then
-                        txtThirdEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
-                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
-                        thirdBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtThirdEmployeeUnits.Text += txtUnitInput.Text & vbNewLine 'adds the input to the appropriate textbox, then adds a new line
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter)) 'store the user input into the 2 dimensional array
+                        thirdBackup += arrEmployeeUnits(employeeCounter, unitCounter) 'pulls the value from the array and stores it in a backup for later math
                         txtUnitInput.Clear()
-                        txtUnitInput.Focus()
+                        txtUnitInput.Focus() 'clears textbox and re-focusses
                         unitCounter += 1
-                        lblDay.Text = arrDays(unitCounter)
+                        lblDay.Text = arrDays(unitCounter) 'updates the current day
                         btnEnter.Enabled = False
                         Exit Do
 
                         'first 6 units entered for second employee
                     ElseIf employeeCounter = 1 Then
-                        txtSecondEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
-                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
-                        secondBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtSecondEmployeeUnits.Text += txtUnitInput.Text & vbNewLine 'adds the input to the appropriate textbox, then adds a new line
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter)) 'store the user input into the 2 dimensional array
+                        secondBackup += arrEmployeeUnits(employeeCounter, unitCounter) 'pulls the value from the array and stores it in a backup for later math
                         txtUnitInput.Clear()
-                        txtUnitInput.Focus()
+                        txtUnitInput.Focus() 'clears textbox and re-focusses
                         unitCounter += 1
-                        lblDay.Text = arrDays(unitCounter)
+                        lblDay.Text = arrDays(unitCounter) 'updates the current day
                         btnEnter.Enabled = False
                         Exit Do
 
                         'first 6 units entered for third employee
                     ElseIf employeeCounter = 0 Then
-                        txtFirstEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
-                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
-                        firstBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtFirstEmployeeUnits.Text += txtUnitInput.Text & vbNewLine 'adds the input to the appropriate textbox, then adds a new line
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter)) 'store the user input into the 2 dimensional array
+                        firstBackup += arrEmployeeUnits(employeeCounter, unitCounter) 'pulls the value from the array and stores it in a backup for later math
                         txtUnitInput.Clear()
-                        txtUnitInput.Focus()
+                        txtUnitInput.Focus() 'clears textbox and re-focusses
                         unitCounter += 1
-                        lblDay.Text = arrDays(unitCounter)
+                        lblDay.Text = arrDays(unitCounter) 'updates the current day
                         btnEnter.Enabled = False
                         Exit Do
                     End If
                 Else
+                    'If validation fails
                     MessageBox.Show("Please Input a whole number between 0 and 5000!")
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
-                    unitCounter -= 1
                     Exit Do
                 End If
             Loop While unitCounter <= 6
 
+            'When done, do not reset the enter button
             If employeeCounter = 3 Then
                 Exit Do
             End If
+            'resets the enter button
             btnEnter.Enabled = True
             Exit Do
-        Loop While employeeCounter <= 2
 
-
-
+        Loop While employeeCounter <= 2 'loops until the employeeCounter is above 3
 
     End Sub
 
@@ -206,11 +195,11 @@ Public Class Form1
         If IsNumeric(inputData) Then
             'If the input is a number, then assign that value to backup
             Integer.TryParse(inputData, backup)
-
-            If (backup < MIN_GRADE Or backup > MAX_GRADE) Then
+            'If the number is outside of our minimum and maximum
+            If (backup < MIN Or backup > MAX) Then
                 Return False
             Else
-                Return True
+                Return True 'otherwise validate
             End If
 
         Else
