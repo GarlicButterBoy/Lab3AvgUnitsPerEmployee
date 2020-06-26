@@ -23,10 +23,11 @@ Public Class Form1
 #Region "Arrays of Sorts"
     'An array to store the day in which the program is asking for the units
     Dim arrDays() As String = {"Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"}
+    Dim arrEmployeeUnits(3, 7) As Integer
 
-    Dim arrEmployeeOne(6) As Integer
-    Dim arrEmployeeTwo(6) As Integer
-    Dim arrEmployeeThree(6) As Integer
+    '  Dim arrEmployeeOne(6) As Integer
+    ' Dim arrEmployeeTwo(6) As Integer
+    '  Dim arrEmployeeThree(6) As Integer
 
     ''' <summary>
     ''' Creates an array of my text boxes
@@ -56,265 +57,119 @@ Public Class Form1
     ''' <param name="e"></param>
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
 
-        Dim userInput As String = txtUnitInput.Text
 
-        'If employeecounter equals 0, then enter if statement for first employee
-        If employeeCounter = 0 Then
 
-            'If the users input is valid, move one otherwise reject
-            If ValidateInput(userInput) Then
+        Do
 
-                If unitCounter = 0 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
+
+            Do
+
+                Dim userInput As String = txtUnitInput.Text
+
+
+                If ValidateInput(userInput) Then
+
+
+                    'If validation succeeds move onto next if-else statement
+                    'last unit entered for third employee
+                    If employeeCounter = 2 And unitCounter = 6 Then
+                        txtThirdEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
+                        thirdBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtUnitInput.Clear()
+                        txtUnitInput.Focus()
+                        employeeCounter += 1
+                        '  lblThirdAvg.Text = "Average:" & 'PUT VALUES FOR Third EMPLOYEE / 7
+                        txtUnitInput.Enabled = False
+                        btnEnter.Enabled = False
+
+                        ' lblCompanyAverage.Text = "Companies Average is: " & 'PUT VALUES FOR all EMPLOYEES HERE / 21
+                        lblDay.Text = "Done!"
+                        Exit Do
+
+                        'last unit entered for second employee
+                    ElseIf employeeCounter = 1 And unitCounter = 6 Then
+                        txtSecondEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
+                        secondBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtUnitInput.Clear()
+                        txtUnitInput.Focus()
+                        unitCounter = 0
+                        employeeCounter += 1
+                        'lblSecondAvg.Text = "Average:" & 'PUT VALUES FOR Second EMPLOYEE / 7
+                        btnEnter.Enabled = False
+                        lblDay.Text = arrDays(unitCounter)
+                        Exit Do
+
+                        'Last unit entered for first employee
+                    ElseIf employeeCounter = 0 And unitCounter = 6 Then
+                        txtFirstEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
+                        firstBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtUnitInput.Clear()
+                        txtUnitInput.Focus()
+                        unitCounter = 0
+                        employeeCounter += 1
+                        'lblFirstAvg.Text = "Average:" & 'PUT VALUES FOR First EMPLOYEE / 7
+                        btnEnter.Enabled = False
+                        lblDay.Text = arrDays(unitCounter)
+                        Exit Do
+
+                        'first 6 units entered for third employee
+                    ElseIf employeeCounter = 2 Then
+                        txtThirdEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
+                        thirdBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtUnitInput.Clear()
+                        txtUnitInput.Focus()
+                        unitCounter += 1
+                        lblDay.Text = arrDays(unitCounter)
+                        btnEnter.Enabled = False
+                        Exit Do
+
+                        'first 6 units entered for second employee
+                    ElseIf employeeCounter = 1 Then
+                        txtSecondEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
+                        secondBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtUnitInput.Clear()
+                        txtUnitInput.Focus()
+                        unitCounter += 1
+                        lblDay.Text = arrDays(unitCounter)
+                        btnEnter.Enabled = False
+                        Exit Do
+
+                        'first 6 units entered for third employee
+                    ElseIf employeeCounter = 0 Then
+                        txtFirstEmployeeUnits.Text += txtUnitInput.Text & vbNewLine
+                        Integer.TryParse(txtUnitInput.Text, arrEmployeeUnits(employeeCounter, unitCounter))
+                        firstBackup += arrEmployeeUnits(employeeCounter, unitCounter)
+                        txtUnitInput.Clear()
+                        txtUnitInput.Focus()
+                        unitCounter += 1
+                        lblDay.Text = arrDays(unitCounter)
+                        btnEnter.Enabled = False
+                        Exit Do
+                    End If
+                Else
+                    MessageBox.Show("Please Input a whole number between 0 and 5000!")
                     txtUnitInput.Clear()
                     txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 1 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 2 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 3 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 4 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 5 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 6 Then
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtFirstEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeOne(unitCounter) = backup
-                    firstBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    employeeCounter += 1
-                    unitCounter = 0
-                    lblFirstAvg.Text = "Average:" & firstBackup / 7
-                    lblDay.Text = arrDays(unitCounter)
-
+                    unitCounter -= 1
+                    Exit Do
                 End If
+            Loop While unitCounter <= 6
 
-            Else
-                MessageBox.Show("Please Input a whole number between 0 and 5000!")
-                txtUnitInput.Clear()
-                txtUnitInput.Focus()
-
+            If employeeCounter = 3 Then
+                Exit Do
             End If
+            btnEnter.Enabled = True
+            Exit Do
+        Loop While employeeCounter <= 2
 
-            'If employeecounter equals 1, then enter elseif statement for second employee
-        ElseIf employeeCounter = 1 Then
 
-            'If the users input is valid, move one otherwise reject
-            If ValidateInput(userInput) Then
 
-                If unitCounter = 0 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
 
-                ElseIf unitCounter = 1 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 2 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 3 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 4 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 5 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 6 Then
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtSecondEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeTwo(unitCounter) = backup
-                    secondBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblSecondAvg.Text = "Average:" & secondBackup / 7
-                    employeeCounter += 1
-                    unitCounter = 0
-                    lblDay.Text = arrDays(unitCounter)
-
-                End If
-
-            Else
-                MessageBox.Show("Please Input a whole number between 0 and 5000!")
-                txtUnitInput.Clear()
-                txtUnitInput.Focus()
-
-            End If
-
-            'if employeecounter equals 2, then enter elseif statement for second employee
-        ElseIf employeeCounter = 2 Then
-
-            'If the users input is valid, move one otherwise reject
-            If ValidateInput(userInput) Then
-
-                If unitCounter = 0 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 1 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 2 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 3 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 4 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 5 Then
-                    unitCounter += 1
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    txtUnitInput.Focus()
-                    lblDay.Text = arrDays(unitCounter)
-
-                ElseIf unitCounter = 6 Then
-                    Integer.TryParse(txtUnitInput.Text, backup)
-                    txtThirdEmployeeUnits.Text += backup.ToString & vbNewLine
-                    arrEmployeeThree(unitCounter) = backup
-                    thirdBackup += backup
-                    txtUnitInput.Clear()
-                    lblThirdAvg.Text = "Average:" & thirdBackup / 7
-                    txtUnitInput.Enabled = False
-                    btnEnter.Enabled = False
-                    lblCompanyAverage.Text = "Companies Average is: " & (firstBackup + secondBackup + thirdBackup) / 21
-                    lblDay.Text = "Done!"
-
-                End If
-
-            End If
-
-        End If
     End Sub
 
     ''' <summary>
